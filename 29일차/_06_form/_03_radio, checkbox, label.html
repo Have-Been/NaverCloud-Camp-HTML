@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radio, checkbox와 label 함께 사용하기</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>프로그래밍 언어(복수선택가능)</h3>
+    <ul>
+        <li>
+            <input type="checkbox">자바
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">C언어
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">파이썬
+            </label>
+        </li>
+    </ul>
+    <h3>데이터베이스(중복선택 불가능)</h3>
+    <ul>
+        <!-- name을 주면 중복 선택이 불가능해진다. 왜지? -->
+        <!-- name : 동일한 이름을 가진 라디오 버튼들을 그룹으로 묶어준다. 
+                    동일한 name을 가진 라디오 버튼 그룹 내에서 중복 선택이 안되게 
+                    하나만 선택할 수 있게 해준다. -->
+        <li>
+            <input type="radio" name="database"> 오라클
+        </li>
+        <li>
+            <label>
+                <input type="radio" name="database"> MySQL
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="radio" name="database"> MSSQL
+            </label>
+        </li>
+    </ul>
+</body>
+</html>
