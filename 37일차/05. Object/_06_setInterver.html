@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setIntervel</title>
+</head>
+<body>
+    <button type="button" id="stopBtn">타이머 종료</button>
+    <h1 id="time"></h1>
+    <script>
+        let hour = 0;
+        let minute = 0;
+        let second = 0;
+
+        let interval;
+        let stopBtn = document.getElementById('stopBtn');
+        interval = setInterval(() => {
+                second++;
+                if(second == 60){
+                    second = 0;
+                    minute++;
+                }
+                if(minute == 60) {
+                    minute = 0;
+                    hour++;
+                }
+                document.getElementById('time').innerHTML = 
+                    `"${convertZeroTime(hour)}:${convertZeroTime(minute)}:${convertZeroTime(second)}"`;
+            }, 1000);
+
+        const convertZeroTime = (time) => {
+            let timeStr = time < 10 ? `0${time}` : time;
+
+            return timeStr;
+        }
+
+        stopBtn.addEventListener("click", () => {
+            if(interval !== null && typeof interval !== 'undefined') {
+                clearInterval(interval);
+            }
+        });
+    </script>
+</body>
+</html>

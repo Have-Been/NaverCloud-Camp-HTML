@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계</title>
+</head>
+<body>
+    <h1>지금 현재 시간은</h1>
+    <h1 id="time"></h1>
+    <script>
+        const date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+
+        let interval;
+        let stopBtn = document.getElementById('stopBtn');
+        interval = setInterval(() => {
+                second++;
+                if(second == 60){
+                    second = 0;
+                    minute++;
+                }
+                if(minute == 60) {
+                    minute = 0;
+                    hour++;
+                }
+                if(hour == 24){
+                    hour = 0;
+                }
+
+                document.getElementById('time').innerHTML = 
+                    `${convertZeroTime(hour)}:${convertZeroTime(minute)}:${convertZeroTime(second)}`;
+            }, 1000);
+
+        const convertZeroTime = (time) => {
+            let timeStr = time < 10 ? `0${time}` : time;
+
+            return timeStr;
+        }
+    </script>
+</body>
+</html>
