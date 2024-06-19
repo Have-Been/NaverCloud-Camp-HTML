@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일반 함수와 화살표 함수의 차이점</title>
+</head>
+<body>
+    <script>
+        // 1. 일반함수는 중복된 매개변수 이름을 사용할 수 있지만
+        // 화살표 함수는 중복된 매개변수 이름을 사용할 수 없다. 
+        
+        // 중복된 파라미터(함수) 사용 가능
+        function add1(a, a) {
+            return a + a;
+        }
+
+        // 중복된 파라미터 사용 불가능
+        // const add2 = (a, a) => {
+        //     return a + a;
+        // }
+
+        const add2 = (a, b) => {
+            return a + b;
+        }
+
+        // 앞에 있는 a를 뒤짚어쓰기 때문에 20 + 20 = 40이 된다.
+        console.log(add1(10, 20));
+        console.log(add2(10, 20));
+
+        // 2. 화살표 함수는 익명 함수 기반이라 prototype을 상속받지 않아서
+        // prototype 객체가 생성되지 않는다.
+        console.log(add1.hasOwnProperty('prototype'));
+        console.log(add2.hasOwnProperty('prototype'));
+    </script>
+</body>
+</html>
